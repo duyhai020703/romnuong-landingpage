@@ -1,0 +1,1533 @@
+/* ===================================================================
+   RƠM NƯỚNG - MÓN NƯỚNG VIỆT NAM
+   Redesigned Stylesheet following romnuong design system & brand tone
+   - Canvas: Warm Linen (#F8EEDA) & Bone (#E2D6BD)
+   - Brand Primary: Deep Midnight Navy (#0a1b39)
+   - Accent: Golden Straw (#fcd28a) & Terracotta (#c85a32)
+   - Clean, natural slide banner with NO blue shadow or dark overlay
+   - NO price tags, focus on culinary heritage & authentic space
+   =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Phudu:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Om Nuong Inspired Warm Organic Palette */
+  --color-linen: #F8EEDA;
+  /* Nền vải lanh mộc mạc (chủ đạo romnuong) */
+  --color-linen-light: #FCF8F0;
+  /* Nền kem nhạt hơn */
+  --color-bone: #E2D6BD;
+  /* Nền giấy dó / viền mộc */
+  --color-twine: #C09F6D;
+  /* Màu sợi cói / rơm vàng đậm */
+
+  /* Rơm Nướng Brand Identity */
+  --color-primary: #0a1b39;
+  /* Midnight Indigo / Navy từ Logo Rơm */
+  --color-primary-dark: #061124;
+  /* Navy đậm */
+  --color-primary-hover: #14284d;
+  /* Hover navy */
+  --color-gold: #fcd28a;
+  /* Vàng rơm sáng từ Logo Rơm */
+  --color-gold-hover: #f3be60;
+  /* Vàng rơm đậm */
+  --color-terracotta: #c85a32;
+  /* Lò đất nung / than hồng */
+
+  /* Neutral Typography */
+  --color-text-main: #151515;
+  /* Chữ đen than (cod grey) */
+  --color-text-muted: #576579;
+  /* Chữ phụ */
+  --color-text-light: #F8EEDA;
+  /* Chữ kem trên nền tối */
+  --color-border: #E2D6BD;
+  /* Đường viền mộc */
+
+  /* Typography Scale */
+  --font-primary: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Phudu', system-ui, sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+
+  /* Layout */
+  --header-height: 78px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+  --container-max: 1220px;
+  --transition: all 0.28s ease;
+}
+
+/* ===================================================================
+   RESET & FOUNDATIONS
+   =================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-linen);
+  color: var(--color-text-main);
+  line-height: 1.65;
+  overflow-x: hidden;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  transition: var(--transition);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Common Section */
+.section {
+  padding: 75px 0;
+  position: relative;
+}
+
+.section-title-wrap {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 46px auto;
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1.8px;
+  color: var(--color-terracotta);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.6vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.25;
+  margin-bottom: 14px;
+  text-wrap: balance;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ===================================================================
+   BUTTONS (romnuong style: clean pill buttons, no cheesy neon shadows)
+   =================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 26px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: var(--radius-full);
+  transition: var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Primary Button: Linen Background, Navy Text (romnuong style) */
+.btn-linen {
+  background-color: var(--color-linen);
+  color: var(--color-primary);
+  border: 1.5px solid transparent;
+}
+
+.btn-linen:hover {
+  background-color: #ffffff;
+  color: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Gold Button: Rơm Gold Background */
+.btn-gold {
+  background-color: var(--color-gold);
+  color: var(--color-primary);
+}
+
+.btn-gold:hover {
+  background-color: var(--color-gold-hover);
+  transform: translateY(-1px);
+}
+
+/* Navy Button: Deep Navy Background, Linen/Gold Text */
+.btn-navy {
+  background-color: var(--color-primary);
+  color: var(--color-linen);
+}
+
+.btn-navy:hover {
+  background-color: var(--color-primary-hover);
+  color: var(--color-gold);
+  transform: translateY(-1px);
+}
+
+/* Outline Button */
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+}
+
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: var(--color-linen);
+}
+
+.btn-sm {
+  padding: 8px 18px;
+  font-size: 0.86rem;
+}
+
+.btn-lg {
+  padding: 14px 34px;
+  font-size: 1.05rem;
+}
+
+/* ===================================================================
+   TOP HEADER (omnuong style with deep navy background & linen nav)
+   =================================================================== */
+
+.main-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-primary);
+  color: var(--color-linen);
+  z-index: 100;
+  transition: var(--transition);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+/* Logo */
+.brand-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  border: 1px solid var(--color-gold);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--color-gold);
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+.brand-sub {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-bone);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 3px;
+}
+
+/* Navigation - EXACT romnuong STYLE */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-item-link {
+  position: relative;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-linen);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+/* Hover motif inspired by romnuong traditional floral/straw SVG icon */
+.nav-item-link::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fcd28a'%3E%3Cpath d='M12 2L13.8 8.2L20 10L13.8 11.8L12 18L10.2 11.8L4 10L10.2 8.2L12 2Z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 3px;
+  opacity: 0;
+  transform: translateX(-4px) scale(0.6);
+  transition: var(--transition);
+}
+
+.nav-item-link:hover,
+.nav-item-link.active {
+  color: var(--color-gold);
+  padding-left: 20px;
+}
+
+.nav-item-link:hover::before,
+.nav-item-link.active::before {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.header-cta-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-phone-quick {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-gold);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Mobile Toggle */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: transparent;
+  padding: 0;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-linen);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* Mobile Drawer */
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 340px;
+  height: 100vh;
+  background: var(--color-primary);
+  color: var(--color-linen);
+  z-index: 200;
+  transition: right 0.35s ease;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-nav-drawer.active {
+  right: 0;
+}
+
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 199;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.mobile-nav-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===================================================================
+   SLIDE BANNER (omnuong Style - 100% Full Width - Zero Cropping)
+   =================================================================== */
+.banner-carousel-section {
+  position: relative;
+  background-color: var(--color-primary-dark);
+  overflow: hidden;
+  width: 100%;
+}
+
+.banner-track {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  aspect-ratio: 2048 / 1029;
+}
+
+.banner-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.banner-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* PURE CLEAN BANNER IMAGE - NO CROPPING, NO BLUE SHADOW OR GRADIENT */
+.banner-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Minimalist Carousel Arrows (romnuong style) */
+.banner-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(10, 27, 57, 0.65);
+  color: var(--color-linen);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  z-index: 10;
+  transition: var(--transition);
+  border: 1px solid rgba(248, 238, 218, 0.3);
+}
+
+.banner-arrow:hover {
+  background: var(--color-primary);
+  color: var(--color-gold);
+}
+
+.banner-arrow.prev {
+  left: 24px;
+}
+
+.banner-arrow.next {
+  right: 24px;
+}
+
+/* Bottom Pagination Indicators */
+.banner-pagination {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.banner-bullet {
+  width: 32px;
+  height: 4px;
+  background: rgba(248, 238, 218, 0.4);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.banner-bullet.active {
+  background: var(--color-gold);
+  width: 48px;
+}
+
+/* ===================================================================
+   SECTION 1: TRẢI NGHIỆM KHÔNG GIAN THUẦN VIỆT (romnuong layout)
+   =================================================================== */
+.space-experience-section {
+  background-color: var(--color-linen);
+  padding: 80px 0;
+}
+
+.space-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 50px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.space-text-col h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.space-text-col p {
+  font-size: 1.05rem;
+  color: var(--color-text-main);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.space-features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.space-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 0.95rem;
+}
+
+.space-feature-item i {
+  color: var(--color-terracotta);
+  font-size: 1.1rem;
+}
+
+/* Space Images Showcase (romnuong carousel / card style) */
+.space-gallery-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.space-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(10, 27, 57, 0.06);
+  border: 1px solid var(--color-bone);
+  transition: var(--transition);
+}
+
+.space-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(10, 27, 57, 0.1);
+}
+
+.space-card-img {
+  height: 250px;
+  overflow: hidden;
+}
+
+.space-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.space-card:hover .space-card-img img {
+  transform: scale(1.06);
+}
+
+.space-card-content {
+  padding: 20px 22px;
+}
+
+.space-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+
+.space-card-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+/* ===================================================================
+   SECTION 2: MENU (romnuong style: lowercase heading "menu", NO PRICES)
+   =================================================================== */
+.menu-section-romnuong {
+  background-color: var(--color-linen);
+  padding: 70px 0 90px 0;
+  border-top: 1px solid var(--color-bone);
+}
+
+.menu-heading-lowercase {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 900;
+  color: var(--color-primary);
+  text-transform: lowercase;
+  /* Exactly like romnuong "menu" */
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.menu-sub-desc {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 36px;
+}
+
+/* Category Filter Tabs */
+.category-tab-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 42px;
+}
+
+.tab-pill {
+  padding: 9px 22px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  border-radius: var(--radius-full);
+  background: #ffffff;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-bone);
+  transition: var(--transition);
+}
+
+.tab-pill:hover {
+  background: var(--color-linen-light);
+  border-color: var(--color-twine);
+}
+
+.tab-pill.active {
+  background: var(--color-primary);
+  color: var(--color-gold);
+  border-color: var(--color-primary);
+}
+
+/* Menu Grid - 3 columns, clean presentation without prices */
+.dish-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.menu-dish-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-bone);
+  box-shadow: 0 4px 14px rgba(10, 27, 57, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  position: relative;
+}
+
+.menu-dish-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(10, 27, 57, 0.1);
+  border-color: var(--color-twine);
+}
+
+.dish-thumbnail {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+  background-color: #f1f5f9;
+}
+
+.dish-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.menu-dish-card:hover .dish-thumbnail img {
+  transform: scale(1.08);
+}
+
+.dish-tag-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-gold);
+  z-index: 2;
+}
+
+.dish-card-info {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.dish-category-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-terracotta);
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+.dish-item-name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.dish-item-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.dish-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px dashed var(--color-bone);
+}
+
+.dish-signature-tag {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-terracotta);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dish-select-btn {
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  background: var(--color-linen);
+  color: var(--color-primary);
+  font-size: 0.84rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.dish-select-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-gold);
+}
+
+/* ===================================================================
+   SECTION 3: ƯU ĐÃI | SỰ KIỆN NHÀ RƠM NƯỚNG (romnuong layout)
+   =================================================================== */
+.event-promotions-section {
+  background-color: var(--color-linen);
+  padding: 80px 0;
+  border-top: 1px solid var(--color-bone);
+}
+
+.promo-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.promo-card {
+  background-color: var(--color-primary);
+  color: var(--color-linen);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(10, 27, 57, 0.15);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(10, 27, 57, 0.22);
+}
+
+.promo-card-thumb {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.promo-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.promo-card:hover .promo-card-thumb img {
+  transform: scale(1.06);
+}
+
+.promo-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.promo-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.promo-card-excerpt {
+  font-size: 0.92rem;
+  color: var(--color-bone);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.promo-card-link {
+  color: var(--color-gold);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.promo-card-link:hover {
+  color: #ffffff;
+}
+
+/* ===================================================================
+   SECTION 4: ĐÁNH GIÁ TỪ THỰC KHÁCH (Real Customer Feedback)
+   =================================================================== */
+.reviews-section-clean {
+  background-color: var(--color-linen);
+  padding: 70px 0 90px 0;
+  border-top: 1px solid var(--color-bone);
+}
+
+.reviews-grid-clean {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.review-item-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 24px;
+  border: 1px solid var(--color-bone);
+  box-shadow: 0 4px 14px rgba(10, 27, 57, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.review-item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(10, 27, 57, 0.09);
+  border-color: var(--color-twine);
+}
+
+.review-user-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.review-avatar-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.review-user-name {
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 0.98rem;
+}
+
+.review-user-tag {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.review-stars {
+  color: #f59e0b;
+  font-size: 0.88rem;
+  display: flex;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.review-quote-text {
+  font-size: 0.94rem;
+  color: var(--color-text-main);
+  line-height: 1.65;
+  font-style: italic;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.review-actual-photo {
+  height: 150px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--color-bone);
+  cursor: pointer;
+}
+
+.review-actual-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.review-actual-photo:hover img {
+  transform: scale(1.05);
+}
+
+/* ===================================================================
+   SECTION 5: ĐẶT BÀN TRỰC TUYẾN (romnuong booking style)
+   =================================================================== */
+.booking-section-clean {
+  background-color: var(--color-linen);
+  padding: 80px 0;
+  border-top: 1px solid var(--color-bone);
+}
+
+.booking-panel-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 44px;
+  border: 1px solid var(--color-bone);
+  box-shadow: 0 8px 30px rgba(10, 27, 57, 0.08);
+}
+
+.booking-header-text {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.booking-header-text h3 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.booking-header-text p {
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+}
+
+.booking-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field-group.full {
+  grid-column: span 2;
+}
+
+.field-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.field-input {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-bone);
+  background: #ffffff;
+  color: var(--color-text-main);
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.field-input:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.field-counter {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--color-bone);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.counter-click-btn {
+  width: 44px;
+  height: 42px;
+  background: var(--color-linen);
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.counter-click-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-gold);
+}
+
+.counter-num-display {
+  flex-grow: 1;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+
+/* Occasion Pills */
+.occasion-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.occasion-pill-opt {
+  position: relative;
+}
+
+.occasion-pill-opt input {
+  position: absolute;
+  opacity: 0;
+}
+
+.occasion-pill-opt label {
+  display: block;
+  text-align: center;
+  padding: 9px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-bone);
+  background: var(--color-linen-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.occasion-pill-opt input:checked+label {
+  background: var(--color-primary);
+  color: var(--color-gold);
+  border-color: var(--color-primary);
+}
+
+/* ===================================================================
+   SECTION 6: VỊ TRÍ BẢN ĐỒ CHÍNH XÁC QUÁN RƠM NƯỚNG TÂY NINH
+   =================================================================== */
+.location-section-clean {
+  background-color: var(--color-linen);
+  padding: 70px 0 90px 0;
+  border-top: 1px solid var(--color-bone);
+}
+
+.location-wrapper-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 36px;
+  align-items: stretch;
+}
+
+.location-detail-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 34px;
+  border: 1px solid var(--color-bone);
+  box-shadow: 0 4px 16px rgba(10, 27, 57, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.location-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.location-icon-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-linen);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.location-meta-text strong {
+  display: block;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 3px;
+}
+
+.location-meta-text p,
+.location-meta-text a {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.5;
+}
+
+.exact-map-frame {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-bone);
+  min-height: 400px;
+  box-shadow: 0 4px 16px rgba(10, 27, 57, 0.05);
+}
+
+.exact-map-frame iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border: none;
+}
+
+/* ===================================================================
+   FOOTER (romnuong style with branch listing)
+   =================================================================== */
+.footer-romnuong-style {
+  background-color: var(--color-primary);
+  color: var(--color-linen);
+  padding: 65px 0 30px 0;
+  border-top: 2px solid var(--color-gold);
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1.7fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(226, 214, 189, 0.18);
+}
+
+.footer-brand-col h4 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+}
+
+.footer-brand-col p {
+  font-size: 0.92rem;
+  color: var(--color-bone);
+  line-height: 1.7;
+}
+
+.branch-listing-col h5 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-gold);
+  margin-bottom: 16px;
+}
+
+.branch-item-block {
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(226, 214, 189, 0.1);
+}
+
+.branch-item-name {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.branch-item-desc {
+  font-size: 0.88rem;
+  color: var(--color-bone);
+  line-height: 1.5;
+}
+
+.footer-contact-col h5 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-gold);
+  margin-bottom: 16px;
+}
+
+.footer-contact-col p {
+  font-size: 0.92rem;
+  color: var(--color-bone);
+  margin-bottom: 10px;
+}
+
+.footer-bottom-bar {
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-bone);
+}
+
+/* ===================================================================
+   FLOATING QUICK ACTIONS (romnuong style right-aligned buttons)
+   =================================================================== */
+.romnuong-quick-action {
+  position: fixed !important;
+  right: 20px;
+  bottom: 24px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quick-action-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: var(--transition);
+}
+
+.quick-action-btn:hover {
+  transform: scale(1.12);
+  color: #ffffff;
+}
+
+.action-zalo {
+  background-color: #0068ff;
+}
+
+.action-phone {
+  background-color: var(--color-terracotta);
+}
+
+.action-booking {
+  background-color: var(--color-primary);
+  color: var(--color-gold);
+  border: 1.5px solid var(--color-gold);
+}
+
+.action-top {
+  background-color: var(--color-bone);
+  color: var(--color-primary);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+}
+
+.action-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ===================================================================
+   MODALS (Dish Quick Preview without prices, Booking Confirmation)
+   =================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 17, 36, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content-box {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  max-width: 600px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal-close-trigger {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(10, 27, 57, 0.8);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  z-index: 10;
+}
+
+.modal-dish-img-wrap {
+  height: 280px;
+  overflow: hidden;
+}
+
+.modal-dish-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-dish-text-body {
+  padding: 24px;
+}
+
+.modal-dish-name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.modal-dish-desc-text {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN
+   =================================================================== */
+@media (max-width: 1024px) {
+  .nav-bar {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .space-intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .space-gallery-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dish-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .promo-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-grid-clean {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .location-wrapper-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  .header-cta-wrap .btn-sm {
+    display: none;
+  }
+
+  .header-phone-quick {
+    display: none;
+  }
+
+  .banner-track {
+    aspect-ratio: 2048 / 1029;
+    min-height: auto;
+  }
+
+  .banner-arrow {
+    display: none;
+  }
+
+  .space-gallery-row {
+    grid-template-columns: 1fr;
+  }
+
+  .dish-grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-grid-clean {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-panel-container {
+    padding: 24px 18px;
+  }
+
+  .booking-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-field-group.full {
+    grid-column: span 1;
+  }
+
+  .occasion-selector-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,101 @@
+# ===================================================================
+# .gitignore for Quán Rơm Nướng Website
+# ===================================================================
+
+# -------------------------------------------------------------------
+# Operating System Files
+# -------------------------------------------------------------------
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# -------------------------------------------------------------------
+# Editor & IDE Directories
+# -------------------------------------------------------------------
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# -------------------------------------------------------------------
+# Environment Variables & Secrets
+# -------------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+*.env
+
+# -------------------------------------------------------------------
+# Node / Package Managers (if added in the future)
+# -------------------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# -------------------------------------------------------------------
+# Logs & Temporary Files
+# -------------------------------------------------------------------
+logs/
+*.log
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+*.orig
+
+# -------------------------------------------------------------------
+# Python & Cache (Agent scripts / internal tooling)
+# -------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.pytest_cache/
+
+# -------------------------------------------------------------------
+# AI Agent & Assistant Files
+# -------------------------------------------------------------------
+.agents/
+.gemini/
+.claude/
+
+# -------------------------------------------------------------------
+# Local Raw Files & Temporary Test Screenshots / Samples
+# -------------------------------------------------------------------
+# Thư mục ảnh gốc chưa qua xử lý (ảnh đã được tối ưu vào assets/images/)
+My Documents*/
+
+# File mẫu & ảnh chụp test kiểm tra
+omnuong_sample_banner.png
+*sample*.png
+*sample*.jpg
+verify_*.png
+test_*.html
+
