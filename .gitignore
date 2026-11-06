@@ -99,3 +99,5 @@ omnuong_sample_banner.png
 verify_*.png
 test_*.html
 
+server.js
+package.json    

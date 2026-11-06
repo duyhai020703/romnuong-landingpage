@@ -74,6 +74,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (carouselSec) {
       carouselSec.addEventListener('mouseenter', stopTimer);
       carouselSec.addEventListener('mouseleave', startTimer);
+
+      // Touch swipe support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+      carouselSec.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopTimer();
+      }, { passive: true });
+
+      carouselSec.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 45) {
+          nextSlide();
+        } else if (touchEndX - touchStartX > 45) {
+          prevSlide();
+        }
+        startTimer();
+      }, { passive: true });
     }
 
     startTimer();
