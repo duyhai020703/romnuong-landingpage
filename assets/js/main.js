@@ -158,38 +158,92 @@ document.addEventListener('DOMContentLoaded', () => {
   const successModal = document.getElementById('bookingConfirmedModal');
   const closeSuccessBtn = document.getElementById('closeConfirmModalBtn');
   const summaryBox = document.getElementById('bookingSummaryContent');
+  const submitBtn = bookingForm?.querySelector('button[type="submit"]');
 
   if (bookingForm) {
-    bookingForm.addEventListener('submit', (e) => {
+    bookingForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const name = document.getElementById('clientName')?.value || 'Quý khách';
-      const phone = document.getElementById('clientPhone')?.value || '';
+      const name = document.getElementById('clientName')?.value.trim() || 'Quý khách';
+      const phone = document.getElementById('clientPhone')?.value.trim() || '';
       const branch = document.getElementById('branchSelect')?.value || 'Rơm Nướng Tây Ninh';
       const date = document.getElementById('bookDate')?.value || 'Hôm nay';
       const time = document.getElementById('bookTime')?.value || '18:00';
       const guests = guestDisplay?.innerText || '4 Khách';
       const purpose = document.querySelector('input[name="eventPurpose"]:checked')?.value || 'Gia đình';
-      const notes = document.getElementById('specialNotes')?.value || 'Không có';
+      const notes = document.getElementById('specialNotes')?.value.trim() || 'Không có';
 
-      if (summaryBox) {
-        summaryBox.innerHTML = `
-          <strong>Người đặt:</strong> ${name} &bull; ${phone}<br/>
-          <strong>Chi nhánh:</strong> ${branch}<br/>
-          <strong>Thời gian:</strong> ${time} - Ngày ${date}<br/>
-          <strong>Số khách:</strong> ${guests} &bull; <strong>Mục đích:</strong> ${purpose}<br/>
-          <strong>Yêu cầu:</strong> ${notes}
-        `;
+      // Validate số điện thoại Việt Nam (10 số)
+      const phoneRegex = /(84|0[3|5|7|8|9])+([0-9]{8})\b/;
+      if (!phoneRegex.test(phone.replace(/\s+/g, ''))) {
+        alert('Vui lòng nhập đúng định dạng số điện thoại Việt Nam (ví dụ: 0908805878)');
+        document.getElementById('clientPhone')?.focus();
+        return;
       }
 
-      if (successModal) {
-        successModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+      // Trạng thái Loading trên nút bấm
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : 'XÁC NHẬN ĐẶT BÀN';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ĐANG GỬI THÔNG TIN...';
       }
 
-      bookingForm.reset();
-      if (guestDisplay) guestDisplay.innerText = '4 Khách';
-      if (hiddenInput) hiddenInput.value = '4';
+      try {
+        const response = await fetch('/api/booking', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            phone,
+            branch,
+            date,
+            time,
+            guests,
+            purpose,
+            notes
+          })
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          if (summaryBox) {
+            summaryBox.innerHTML = `
+              <strong>Người đặt:</strong> ${name} &bull; ${phone}<br/>
+              <strong>Chi nhánh:</strong> ${branch}<br/>
+              <strong>Thời gian:</strong> ${time} - Ngày ${date}<br/>
+              <strong>Số khách:</strong> ${guests} &bull; <strong>Mục đích:</strong> ${purpose}<br/>
+              <strong>Yêu cầu:</strong> ${notes}
+            `;
+          }
+
+          if (successModal) {
+            successModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+
+          bookingForm.reset();
+          if (guestDisplay) guestDisplay.innerText = '4 Khách';
+          if (hiddenInput) hiddenInput.value = '4';
+          if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.value = today;
+            dateInput.min = today;
+          }
+        } else {
+          alert(result.message || 'Có lỗi xảy ra khi gửi yêu cầu. Quý khách vui lòng gọi Hotline 0908805878 để được giữ bàn ngay!');
+        }
+      } catch (err) {
+        console.error('Lỗi kết nối đặt bàn:', err);
+        alert('Không thể kết nối máy chủ đặt bàn. Quý khách vui lòng liên hệ trực tiếp Hotline 0908805878 để đặt bàn nhanh nhất!');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+      }
     });
   }
 
