@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const name = document.getElementById('clientName')?.value.trim() || 'Quý khách';
       const phone = document.getElementById('clientPhone')?.value.trim() || '';
-      const branch = document.getElementById('branchSelect')?.value || 'Rơm Nướng Tây Ninh';
+      const branch = 'Rơm Nướng: 74 Lương Thế Vinh (Chánh Môn A), Tây Ninh';
       const date = document.getElementById('bookDate')?.value || 'Hôm nay';
       const time = document.getElementById('bookTime')?.value || '18:00';
       const guests = guestDisplay?.innerText || '4 Khách';
@@ -212,7 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
           if (summaryBox) {
             summaryBox.innerHTML = `
               <strong>Người đặt:</strong> ${name} &bull; ${phone}<br/>
-              <strong>Chi nhánh:</strong> ${branch}<br/>
               <strong>Thời gian:</strong> ${time} - Ngày ${date}<br/>
               <strong>Số khách:</strong> ${guests} &bull; <strong>Mục đích:</strong> ${purpose}<br/>
               <strong>Yêu cầu:</strong> ${notes}

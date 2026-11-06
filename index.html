@@ -584,16 +584,6 @@
 
         <form id="bookingTableForm">
           <div class="booking-form-grid">
-            <!-- Branch Selection -->
-            <div class="form-field-group full">
-              <label class="field-label"><i class="fa-solid fa-store"></i> Chi nhánh</label>
-              <select id="branchSelect" class="field-input" required>
-                <option value="Rơm Nướng - 74 Chánh Môn A, Phường 4, TP. Tây Ninh" selected>Rơm Nướng: 74 Chánh Môn A,
-                  Phường 4, TP. Tây Ninh</option>
-                <option value="Rơm Quê - Ninh Sơn, TP. Tây Ninh">Rơm Quê: Ninh Sơn, TP. Tây Ninh</option>
-              </select>
-            </div>
-
             <!-- Customer Name -->
             <div class="form-field-group">
               <label for="clientName" class="field-label"><i class="fa-solid fa-user"></i> Họ và tên *</label>
@@ -641,7 +631,10 @@
 
             <!-- Occasion -->
             <div class="form-field-group full">
-              <label class="field-label"><i class="fa-solid fa-champagne-glasses"></i> Mục đích buổi tiệc</label>
+              <label class="field-label">
+                <i class="fa-solid fa-champagne-glasses"></i> Mục đích buổi tiệc
+                <span class="occasion-free-decor-tag"><i class="fa-solid fa-gift"></i> Tặng decor tiệc sinh nhật</span>
+              </label>
               <div class="occasion-selector-grid">
                 <div class="occasion-pill-opt">
                   <input type="radio" name="eventPurpose" id="p_fam" value="Gia đình" checked />
@@ -649,7 +642,7 @@
                 </div>
                 <div class="occasion-pill-opt">
                   <input type="radio" name="eventPurpose" id="p_bday" value="Sinh nhật" />
-                  <label for="p_bday">Sinh Nhật (Free Decor)</label>
+                  <label for="p_bday">Sinh Nhật</label>
                 </div>
                 <div class="occasion-pill-opt">
                   <input type="radio" name="eventPurpose" id="p_friends" value="Họp mặt bạn bè" />
