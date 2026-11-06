@@ -1041,6 +1041,8 @@ button {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-width: 0;
+  width: 100%;
 }
 
 .form-field-group.full {
@@ -1055,18 +1057,52 @@ button {
 
 .field-input {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   padding: 11px 16px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--color-bone);
   background: #ffffff;
   color: var(--color-text-main);
   font-size: 0.95rem;
+  font-family: inherit;
   transition: var(--transition);
 }
 
 .field-input:focus {
   border-color: var(--color-primary);
   outline: none;
+}
+
+/* Fix riêng cho ô ngày dùng bữa (Date Picker) trên Webkit/iOS không bị tràn */
+input[type="date"].field-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  min-height: 46px;
+}
+
+input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* Tăng chiều cao textarea Ghi chú để chứa hết placeholder ví dụ */
+textarea.field-input {
+  min-height: 85px;
+  resize: vertical;
+  line-height: 1.5;
 }
 
 .field-counter {
@@ -1574,6 +1610,7 @@ button {
 
   .booking-panel-container {
     padding: 24px 18px;
+    overflow: hidden;
   }
 
   .booking-form-grid {
@@ -1582,6 +1619,23 @@ button {
 
   .form-field-group.full {
     grid-column: span 1;
+  }
+
+  .field-input {
+    padding: 11px 14px;
+    font-size: 0.92rem;
+  }
+
+  input[type="date"].field-input {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 11px 14px;
+  }
+
+  textarea.field-input {
+    min-height: 98px;
   }
 
   .occasion-free-decor-tag {
